@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route ,Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Header from "./Header"
 import STORE from './store'
 import Folders from "./dynamicFolderRoute/Folders"
@@ -26,7 +26,7 @@ class App extends React.Component {
 
           <Route exact path="/" 
             render={(props) => {return (
-            <div>
+            <div className="content">
               <Folders 
               folders={this.state.folders}
               />
@@ -42,7 +42,7 @@ class App extends React.Component {
           exact path ="/folders/:folderId"
               render={(props) => {
                 return (
-                  <div>
+                  <div className="content">
                     <Folders
                       folders={this.state.folders}
                     />
@@ -66,7 +66,7 @@ class App extends React.Component {
                   const folder = this.state.folders.find(folder => 
                       folder.id === note.folderId)
                   return (
-                    <div>
+                    <div className="content">
                       <h2>{folder.name}</h2>
                       <NoteDetails
                         notes={note}
