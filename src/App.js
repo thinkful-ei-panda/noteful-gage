@@ -5,6 +5,7 @@ import STORE from './store'
 import Folders from "./dynamicFolderRoute/Folders"
 import Notes from "./dynamicNoteRoute/Notes"
 import NoteDetails from './dynamicNoteRoute/NoteDetails'
+import SubmitForm from './submitForm/SubmitForm'
 import './App.css'
 
 class App extends React.Component {
@@ -77,6 +78,15 @@ class App extends React.Component {
                   
                 }}
             />
+            <Route
+            exact path="/submit-form"
+            render={(props)=> {
+              return (
+                <div>
+                  <SubmitForm/>
+                </div>
+              )
+            }}/>
       </main>
     );
   } 
