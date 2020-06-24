@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 
 export default function Folders(props){
 
+    console.log(props.folders.length)
+
     const folderList = props.folders.map( folder => 
-        <Link key={folder.id} to={`folders/${folder.id}`}>
+        <Link key={folder.id} to={`/folders/${folder.id}`}>
             <div className='box' id={folder.id}>
                 <h2>{folder.name}</h2>
             </div>
@@ -17,8 +19,8 @@ export default function Folders(props){
 
         return(
             <div className="folder-sidebar">
-                 {folderList}         
-                <button type='submit'>add  new folder</button>
+                 {folderList}      
+                <button type='submit'>add new folder</button>
             </div>
         )
 

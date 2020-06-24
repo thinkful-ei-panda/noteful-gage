@@ -1,24 +1,24 @@
 import React from  'react';
-import  {Link, Route} from 'react-router-dom'
+import  {Link,} from 'react-router-dom'
 
 
     export default function Notes(props){
+
+        //props.match.params.noteId
+        // const note = 
         
         const notesMaped = props.notes.map( note => 
-
-            <Link key={note.id} to={`/note/${note.id}` }>
-                <div className='box' id={note.folderId}>
+             <div key={note.id} className='box' id={note.folderId}>
+            <Link to={`/note/${note.id}` }>
                     <h2>{note.name}</h2>
                     <p>{note.modified}</p>
-                    <button>Delete</button>
-                </div>
-            </Link>
+                </Link> <button>Delete</button>
+             </div>
             )
 
             return(
                 <div className='notes-list'>
                     {notesMaped}
-                    <button type="button">add new folder</button>
                 </div>
 
 

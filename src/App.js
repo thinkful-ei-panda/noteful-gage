@@ -4,6 +4,7 @@ import Header from "./Header"
 import STORE from './store'
 import Folders from "./dynamicFolderRoute/Folders"
 import Notes from "./dynamicNoteRoute/Notes"
+import NoteDetails from './dynamicNoteRoute/NoteDetails'
 import './App.css'
 
 class App extends React.Component {
@@ -32,7 +33,6 @@ class App extends React.Component {
               <Notes
               notes={this.state.notes}              
               />
-              
             </div>) } }  
           />
 
@@ -43,12 +43,12 @@ class App extends React.Component {
               render={(props) => {
                 return (
                   <div>
+                    <Folders
+                      folders={this.state.folders}
+                    />
                       <Notes
                         notes={this.state.notes.filter(note => 
                           props.match.params.folderId === note.folderId)}
-                        />
-                        <Folders
-                          folders={this.state.folders}
                         />
                   </div>
                 )
@@ -58,18 +58,18 @@ class App extends React.Component {
           {/****if note is clicked****/}
           
           <Route
-            exact path="note/:noteId"
+            exact path="/note/:noteId"
                 render={(props) => {
+                  const note = this.state.notes.find(note =>
+                    props.match.params.noteId === note.id)
+
+                  const folder = this.state.folders.find(folder => 
+                      folder.id === note.folderId)
                   return (
                     <div>
-                      <Link to='/'>
-                        <div>
-                          Go back  
-                        </div> 
-                      </Link>
-                      <Notes
-                        notes={this.state.notes.filter(note =>
-                          props.match.params.id === note.id)}
+                      <h2>{folder.name}</h2>
+                      <NoteDetails
+                        notes={note}
                         />
                       
                     </div>
