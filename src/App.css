@@ -1,0 +1,20 @@
+body{
+    background-color: darkgrey;
+}
+
+main{
+    display: flex ;
+
+}
+
+.folder-sidebar{
+
+}
+
+.notes-list{
+
+}
+
+.box{
+    border: black solid;
+}
